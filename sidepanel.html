@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QKit - QA Toolkit</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Accordion Navigation -->
+    <div class="accordion-btns">
+      <button class="accordion-btn active" id="btn-convert">
+        <span>🔤</span>
+        <span>Convert</span>
+      </button>
+      <button class="accordion-btn" id="btn-timeurl">
+        <span>🕒</span>
+        <span>Time</span>
+      </button>
+      <button class="accordion-btn" id="btn-count">
+        <span>📝</span>
+        <span>Count</span>
+      </button>
+      <button class="accordion-btn" id="btn-date">
+        <span>📅</span>
+        <span>Date</span>
+      </button>
+    </div>
+
+    <!-- Convert Section -->
+    <div class="accordion-section active" id="section-convert">
+      <h3 class="section-title">🔤 Full-width / Half-width Conversion</h3>
+      
+      <div class="form-group">
+        <label class="form-label">Input Text</label>
+        <textarea id="convert-input" placeholder="Enter text to convert..."></textarea>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn" id="full-to-half">Full → Half</button>
+        <button class="btn" id="half-to-full">Half → Full</button>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Result</label>
+        <textarea id="convert-result" placeholder="Converted text will appear here..." readonly></textarea>
+      </div>
+    </div>
+
+    <!-- Time Section -->
+    <div class="accordion-section" id="section-timeurl">
+      <h3 class="section-title">🕒 Time</h3>
+      
+      <div class="form-group">
+        <label class="form-label">Timezone</label>
+        <select id="timezone-select" class="timezone-select">
+          <option value="local">Local Time</option>
+          <option value="UTC">UTC</option>
+          <option value="UTC+9">UTC+9 (KST)</option>
+          <option value="UTC+8">UTC+8 (CST)</option>
+          <option value="UTC+1">UTC+1 (CET)</option>
+          <option value="UTC-5">UTC-5 (EST)</option>
+          <option value="UTC-8">UTC-8 (PST)</option>
+        </select>
+      </div>
+
+      <div class="time-url-section">
+        <div><span>Current Time:</span></div>
+        <div class="time-display" id="current-time">Loading...</div>
+      </div>
+
+      <!-- Memo Section -->
+      <div class="form-group">
+        <label class="form-label">📝 Memo</label>
+        <textarea id="memo-text" placeholder="Write your memo here..." maxlength="1000"></textarea>
+        <div class="memo-count">
+          <span id="memo-count">0</span> / 1000 characters
+        </div>
+      </div>
+    </div>
+
+    <!-- Character Count Section -->
+    <div class="accordion-section" id="section-count">
+      <h3 class="section-title">📝 Character & Byte Count</h3>
+      
+      <div class="form-group">
+        <label class="form-label">Input Text</label>
+        <textarea id="count-input" placeholder="Enter text to count..."></textarea>
+      </div>
+
+      <div class="result" id="count-result">
+        <div><strong>Characters (with spaces):</strong> <span id="chars-with-space">0</span></div>
+        <div><strong>Characters (without spaces):</strong> <span id="chars-no-space">0</span></div>
+        <div><strong>Bytes (UTF-8):</strong> <span id="byte-count">0</span></div>
+      </div>
+    </div>
+
+    <!-- Date Calculator Section -->
+    <div class="accordion-section" id="section-date">
+      <h3 class="section-title">📅 Date Calculator</h3>
+      
+      <div class="form-group">
+        <label class="form-label">Today ± N days</label>
+        <div class="date-inputs">
+          <input type="number" id="add-days-input" placeholder="0" value="0">
+          <span>days</span>
+          <button class="btn btn-secondary" id="add-days-btn">Calculate</button>
+        </div>
+        <div class="result text-success font-medium" id="add-days-result"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Date Difference</label>
+        <div class="date-inputs">
+          <div class="date-picker-container">
+            <input type="date" id="date1" class="date-picker-input">
+          </div>
+          <span>to</span>
+          <div class="date-picker-container">
+            <input type="date" id="date2" class="date-picker-input">
+          </div>
+        </div>
+        <button class="btn w-full" id="date-diff-btn">Calculate Difference</button>
+        <div class="result" id="date-diff-result"></div>
+      </div>
+
+      <div class="timezone-info" id="today-timezone-info"></div>
+    </div>
+
+  <div class="donate-container">
+    <a href="https://www.buymeacoffee.com/justice_tia" target="_blank" class="donate-btn">
+    ☕ Buy me a coffee 😋
+   </a>
+  </div>
+  </div>
+
+  <script src="utils.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html> 
