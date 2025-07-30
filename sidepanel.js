@@ -319,7 +319,7 @@ class QKitSidePanel {
       const date2 = this.elements.date2.value;
       
       if (date1 && date2) {
-        const result = dateDiff(date1, date2);
+        const result = DateCalculator.dateDifference(date1, date2);
         this.elements.dateDiffResult.textContent = result;
       } else {
         this.elements.dateDiffResult.textContent = 'Please select both dates';
