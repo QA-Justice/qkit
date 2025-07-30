@@ -2,7 +2,7 @@
 // Refactored for better maintainability and readability
 
 /**
- * Background service worker for QKit Chrome Extension
+ * QKit Chrome 확장 프로그램의 백그라운드 서비스 워커
  */
 class QKitBackground {
   constructor() {
@@ -10,19 +10,19 @@ class QKitBackground {
   }
 
   /**
-   * Initialize all event listeners
+   * 모든 이벤트 리스너 초기화
    */
   initializeEventListeners() {
-    // Handle extension icon clicks
+    // 확장 프로그램 아이콘 클릭 처리
     chrome.action.onClicked.addListener(this.handleIconClick.bind(this));
     
-    // Handle extension installation
+    // 확장 프로그램 설치 처리
     chrome.runtime.onInstalled.addListener(this.handleInstallation.bind(this));
   }
 
   /**
-   * Handle extension icon click
-   * @param {chrome.tabs.Tab} tab - The active tab
+   * 확장 프로그램 아이콘 클릭 처리
+   * @param {chrome.tabs.Tab} tab - 활성 탭
    */
   async handleIconClick(tab) {
     try {
@@ -34,7 +34,7 @@ class QKitBackground {
   }
 
   /**
-   * Handle extension installation
+   * 확장 프로그램 설치 처리
    */
   async handleInstallation() {
     try {
@@ -45,16 +45,16 @@ class QKitBackground {
   }
 
   /**
-   * Open the side panel
-   * @param {chrome.tabs.Tab} tab - The active tab
+   * 사이드 패널 열기
+   * @param {chrome.tabs.Tab} tab - 활성 탭
    */
   async openSidePanel(tab) {
     await chrome.sidePanel.open({ windowId: tab.windowId });
   }
 
   /**
-   * Configure side panel options
-   * @param {chrome.tabs.Tab} tab - The active tab
+   * 사이드 패널 옵션 설정
+   * @param {chrome.tabs.Tab} tab - 활성 탭
    */
   async configureSidePanel(tab) {
     await chrome.sidePanel.setOptions({
@@ -65,7 +65,7 @@ class QKitBackground {
   }
 
   /**
-   * Setup side panel behavior for all tabs
+   * 모든 탭에 대한 사이드 패널 동작 설정
    */
   async setupSidePanelBehavior() {
     await chrome.sidePanel.setPanelBehavior({ 
@@ -74,5 +74,5 @@ class QKitBackground {
   }
 }
 
-// Initialize the background service worker
+// 백그라운드 서비스 워커 초기화
 new QKitBackground(); 
